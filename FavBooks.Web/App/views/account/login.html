@@ -1,0 +1,27 @@
+﻿<form role="form" ng-submit="login()">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h2>Login</h2>
+            <div class="input-group form-group">
+                <input type="text" data-ng-model="viewModel.userName" class="form-control input-lg" placeholder="Username"
+                       data-val="true" data-val-regex-pattern="^[^\,]*$" data-val-regex="Username is not valid" data-val-required="Username required" required autofocus>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+            </div>
+            <div class="input-group form-group">
+                <input type="password" data-ng-model="viewModel.password" class="form-control input-lg" placeholder="Password"
+                       data-val="true" data-val-required="Password required" required>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+            </div>
+            <div class="text-center form-group">
+                <button type="submit" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-log-in"></span>
+                    Login
+                </button>
+            </div>
+            
+            <div data-ng-hide="message == ''" class="alert alert-danger">
+                {{message}}
+            </div>
+        </div>
+    </div>
+</form>

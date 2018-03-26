@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </button>
+            <a class="navbar-brand" href="/">FavBooks</a>
+        </div>
+        <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+            <ul class="nav navbar-nav navbar-right">
+                <li data-ng-hide="!authentication.isAuth"><a href="/">Welcome {{authentication.userName}}</a></li>
+                <li data-ng-hide="!authentication.isAuth">
+                    <a href="/search">
+                        <span class="glyphicon glyphicon-search"></span>
+                        Search
+                    </a>
+                </li>
+                <li data-ng-hide="!authentication.isAuth">
+                    <a href="/favourites">
+                        <span class="glyphicon glyphicon-star"></span>
+                        My Favourites
+                    </a>
+                </li>
+                <li data-ng-hide="!authentication.isAuth">
+                    <a href="" data-ng-click="logOut()">
+                        <span class="glyphicon glyphicon-log-out"></span>
+                        Logout
+                    </a>
+                </li>
+                <li data-ng-hide="authentication.isAuth">
+                    <a href="/login">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                        Login
+                    </a>
+                </li>
+                <li data-ng-hide="authentication.isAuth">
+                    <a href="/signup">
+                        <span class="glyphicon glyphicon-check"></span>
+                        Sign Up
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container middle-container">
+    <div data-ng-view="">
+    </div>
+</div>
+<div class="panel-footer navbar-fixed-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-muted">By Nargiz Gasimova</p>
+            </div>
+            <div class="col-md-6">
+                <p class="text-muted">Source code: <a target="_blank" href="#">github</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/jsbundles/libs")
+    @Scripts.Render("~/jsbundles/main")
+
+    @if (BundleTable.EnableOptimizations)
+    {
+        @Scripts.Render("~/bundles/templates")
+    }
+    else
+    {
+        @Scripts.RenderFormat("<script type=\"text/ng-template\" src=\"{0}\"></script>", "~/bundles/templates")
+    }
+}
+@section styles{
+    @Styles.Render("~/content/libbundle")
+    @Styles.Render("~/content/mainbundle")
+}

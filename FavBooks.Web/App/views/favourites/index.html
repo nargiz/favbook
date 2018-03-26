@@ -1,0 +1,14 @@
+﻿<div class="row">
+    <div class="col-md-8 col-md-offset-2 margin-top-2" ng-show="books && books.length > 0">
+        <div>
+            <div dir-paginate="book in books | itemsPerPage: itemsPerPage" total-items="totalItems" current-page="pagination.current">
+                <div class="margin-bottom-1" ng-include="'/app/views/favourites/favouriteItem.html'"></div>
+            </div>
+        </div>
+
+        <dir-pagination-controls on-page-change="changePage(newPageNumber)"></dir-pagination-controls>
+    </div>
+    <div class="col-md-8 col-md-offset-2" ng-show="books && books.length == 0">
+        <div class="h2 text-muted text-center">No item found</div>
+    </div>
+</div>

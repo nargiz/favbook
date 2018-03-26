@@ -1,0 +1,54 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron">
+            <div class="text-center">
+                <h1>FavBooks</h1>
+            </div>
+            <p>Welcome to FavBooks where you can search for your favourite books and add them to your list. In order to manage your favourite books you will need to login into the system</p>
+        </div>
+    </div>
+</div>
+<div class="row" ng-hide="authentication.isAuth">
+    <div class="col-md-4 col-md-offset-2">
+        <h2>Login</h2>
+        <p class="text-primary">If you have Username and Password, you can use the button below to access to your favourite books.</p>
+        <p>
+            <a class="btn btn-success btn-lg" href="/login" role="button">
+                <span class="glyphicon glyphicon-log-in"></span>
+                Login
+            </a>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Sign Up</h2>
+        <p class="text-primary">Use the button below to create a new account into the system.</p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="/signup" role="button">
+                <span class="glyphicon glyphicon-check"></span>
+                Sign Up
+            </a>
+        </p>
+    </div>
+</div>
+<div class="row" ng-hide="!authentication.isAuth">
+    <div class="col-md-4 col-md-offset-2">
+        <h2>Search</h2>
+        <p class="text-primary">Search for a book by it's ISBN and add to your favourites</p>
+        <p>
+            <a class="btn btn-success btn-lg" href="/search" role="button">
+                <span class="glyphicon glyphicon-search"></span>
+                Search
+            </a>
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>My favourites</h2>
+        <p class="text-primary">View and manage your favourite books</p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="/favourites" role="button">
+                <span class="glyphicon glyphicon-star"></span>
+                My favourites
+            </a>
+        </p>
+    </div>
+</div>

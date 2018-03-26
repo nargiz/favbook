@@ -1,0 +1,12 @@
+﻿<div class="clearfix">
+    <img class="book-cover pull-left" ng-src="{{book.coverThumb}}" ng-show="book.coverThumb" />
+    <div class="book-header h2">
+        {{book.title}} <br />
+        <span class="h6">{{book.subTitle}}</span>
+        <span ng-show="book.dateCreated" ng-click="removeFromFavourite(book.isbn)" class="glyphicon glyphicon-remove book-remove"></span>
+    </div>
+    <div class="h4">by {{book.authors}}</div>
+    <div ng-show="book.description" class="margin-top-1"><strong>Description:</strong> {{book.description}}</div>
+    <div ng-show="book.subjects" class="margin-top-1"><strong>Subjects:</strong> {{book.subjects}}</div>
+    <div ng-show="book.subjects" class="margin-top-1"><strong>ISBN:</strong> {{book.isbn}}</div>
+</div>
